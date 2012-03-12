@@ -869,3 +869,9 @@ list-style-position: outside; }
     color:#888;
     margin-bottom:10px;
 }
+.adjunto_list a{
+    color: #486e4a;
+}
+.adjunto_list a:hover{
+    color: #BE3837
+};

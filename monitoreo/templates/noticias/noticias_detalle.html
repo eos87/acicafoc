@@ -43,8 +43,15 @@
 		    <div class="elemento-lista">
 		        <div class="fecha">{{noticia.fecha|date:"d M"}}</div>
 		        <div class="titulo"><a href="/noticias/{{noticia.slug}}">{{noticia.titulo}}</a></div>
-		        <div class="descripcion">{{noticia.contenido|truncatewords:80|safe}}</div>
-		        
+		        <div class="descripcion">{{noticia.contenido|safe}}</div>
+		        {% if noticia.adjunto_set.all %}
+		        <div class="fecha">Adjuntos:</div>
+		        <div class="adjunto_list">
+		        {% for adjunto in noticia.adjunto_set.all %}
+		        <a href="{{adjunto.adjunto.url}}">{{adjunto.nombre}}</a>{% if not forloop.last %}, {% endif %}
+		        {% endfor %}
+		        </div>
+		        {% endif %}
 		        <div class="separador"></div>
 		    </div>	
 		    <div class="galeria">
